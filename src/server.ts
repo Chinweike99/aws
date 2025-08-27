@@ -1,16 +1,13 @@
-import express, { Request, Response } from 'express';
-import cors from 'cors'
+import app from './app';
 
-const app = express();
-const port = 3000
+const PORT = process.env.PORT || 5000;
 
-app.use(express.json());
-app.use(cors());
 
-app.get('/', (req: Request, res: Response) => {
-    res.send("Welcome to your AWS learnings")
-})
+// app.use(express.json());
+// app.use(cors());
 
-app.listen(port, () => {
-    console.log(`Listening on Port http:localhost:${port}`)
+
+
+app.listen(PORT, () => {
+    console.log(`Listening on Port http:localhost:${PORT}`)
 })
