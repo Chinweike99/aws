@@ -2,9 +2,9 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
-// import { authController } from './controllers/authController';
-// import { todoController } from './controllers/todoController';
-// import { authenticate } from './middleware/auth';
+import { authController } from './controller/authController';
+import { todoController } from './controller/todoControllers';
+import { authenticate } from './middleware/auth';
 
 const app = express();
 
@@ -27,16 +27,16 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-// app.post('/api/auth/register', authController.register);
-// app.post('/api/auth/login', authController.login);
-// app.get('/api/auth/profile', authenticate, authController.getProfile);
+app.post('/api/auth/register', authController.register);
+app.post('/api/auth/login', authController.login);
+app.get('/api/auth/profile', authenticate, authController.getProfile);
 
-// app.post('/api/todos', authenticate, todoController.createTodo);
-// app.get('/api/todos', authenticate, todoController.getTodos);
-// app.get('/api/todos/:id', authenticate, todoController.getTodo);
-// app.put('/api/todos/:id', authenticate, todoController.updateTodo);
-// app.delete('/api/todos/:id', authenticate, todoController.deleteTodo);
-// app.patch('/api/todos/:id/toggle', authenticate, todoController.toggleTodo);
+app.post('/api/todos', authenticate, todoController.createTodo);
+app.get('/api/todos', authenticate, todoController.getTodos);
+app.get('/api/todos/:id', authenticate, todoController.getTodo);
+app.put('/api/todos/:id', authenticate, todoController.updateTodo);
+app.delete('/api/todos/:id', authenticate, todoController.deleteTodo);
+app.patch('/api/todos/:id/toggle', authenticate, todoController.toggleTodo);
 
 
 app.get('/', (req: Request, res: Response) => {
