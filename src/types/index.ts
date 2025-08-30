@@ -1,3 +1,5 @@
+import { Request } from 'express';
+
 export interface User {
   id: string;
   email: string;
@@ -19,6 +21,7 @@ export interface Todo {
   updatedAt: Date;
 }
 
+// Make sure to import Request from 'express' and extend it properly
 export interface AuthRequest extends Request {
   user?: {
     id: string;
