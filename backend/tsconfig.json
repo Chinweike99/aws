@@ -8,12 +8,12 @@
       "strict": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
-      "outDir": "./dist",
-      "rootDir": "./src"
+      "outDir": "backend/dist",
+      "rootDir": "backend/dist/src"
     },
     "ts-node": {
       "esm": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules", "dist", "src/tests"]
+    "include": ["backend/dist/src/**/*"],
+    "exclude": ["backend/dist/node_modules", "backend/dist", "backend/dist/src/tests"]
   }
